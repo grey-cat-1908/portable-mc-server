@@ -1,0 +1,7 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%:latest
+
+RUN install_packages openssh-server
+
+COPY run.sh /usr/src/
+
+CMD ["/bin/bash", "/usr/src/run.sh"]

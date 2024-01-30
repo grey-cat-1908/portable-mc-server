@@ -1,0 +1,31 @@
+version: '2'
+services:
+  minecraft:
+    network_mode: host
+    restart: always
+    build: ./minecraft
+    privileged: true
+    labels:
+      io.balena.features.dbus: 1
+      io.balena.features.supervisor-api: 1
+    volumes:
+      - mcfiles:/usr/src/mcfiles
+      - localcache:/localcache
+    ports:
+      - "25565:25565/tcp"
+  ssh:
+    network_mode: host
+    restart: always
+    build: ./ssh
+    privileged: false
+    labels:
+      io.balena.features.dbus: 1
+    volumes:
+      - mcfiles:/usr/src/mcfiles
+      - localcache:/localcache
+    ports:
+      - "22:22/tcp"
+      - "22:22/udp"
+volumes:
+  mcfiles:
+  localcache:

@@ -1,0 +1,4 @@
+name: Minecraft Server
+data:
+  applicationEnvironmentVariables:
+    - RAM: 1G
