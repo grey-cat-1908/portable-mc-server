@@ -43,7 +43,7 @@ I recommend using FileZilla to connect to the server via SFTP.
 
 ... ToDo...?
 
-Once the connection is established, remember to navigate to the `/usr/src/mcfiles' directory.
+Once the connection is established, remember to navigate to the `/usr/src/mcfiles` directory.
 
 ## Installing plugins
 
