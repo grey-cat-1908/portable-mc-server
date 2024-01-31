@@ -1,3 +1,11 @@
+delete_server() {
+  shopt -s nullglob
+
+  if [ -f "server.jar" ]; then
+    rm "server.jar"
+  fi
+}
+
 get_pufferfish_server() {
   if [[ -z "$MC_VERSION" ]]; then
     MC_VERSION="1.20"
@@ -8,11 +16,7 @@ get_pufferfish_server() {
   PUFFERFISH_BUILD_FILENAME=$(jq -n "$PUFFERFISH_BUILD_JSON" | jq -jc '.artifacts[].fileName // empty' )
   PUFFERFISH_BUILD_DOWNLOAD_URL="${PUFFERFISH_BUILD_URL}artifact/build/libs/${PUFFERFISH_BUILD_FILENAME}"
 
-  shopt -s nullglob
-
-  if [ -f "server.jar" ]; then
-    rm "server.jar"
-  fi
+  delete_server
 
   wget --quiet -O server.jar -T 60 $PUFFERFISH_BUILD_DOWNLOAD_URL
 }
@@ -24,18 +28,26 @@ get_patina_server() {
 
   PATINA_BUILD_DOWNLOAD_URL="https://github.com/PatinaMC/Patina/raw/releases/${MC_VERSION}/patina-paperclip-${MC_VERSION}-R0.1-SNAPSHOT-reobf.jar"
 
-  shopt -s nullglob
-
-  if [ -f "server.jar" ]; then
-    rm "server.jar"
-  fi
+  delete_server
 
   wget --quiet -O server.jar -T 60 $PATINA_BUILD_DOWNLOAD_URL
 }
 
+get_purpur_server() {
+  if [[ -z "$MC_VERSION" ]]; then
+    MC_VERSION="1.20.4"
+  fi
+
+  PURPUR_BUILD_DOWNLOAD_URL="https://api.purpurmc.org/v2/purpur/${MC_VERSION}/latest/download"
+
+  delete_server
+
+  wget --quiet -O server.jar -T 60 $PURPUR_BUILD_DOWNLOAD_URL
+}
+
 get_server() {
   if [[ -z "$MC_SERVER" ]]; then
-    MC_SERVER="pufferfish"
+    MC_SERVER="purpur"
   fi
 
   if [[ "$MC_SERVER" = "pufferfish" ]]; then
@@ -43,6 +55,9 @@ get_server() {
   fi
   if [[ "$MC_SERVER" = "patina" ]]; then
     get_patina_server
+  fi
+  if [[ "$MC_SERVER" = "purpur" ]]; then
+    get_purpur_server
   fi
 }
 
