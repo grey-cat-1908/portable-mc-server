@@ -6,6 +6,21 @@ delete_server() {
   fi
 }
 
+get_paper_server() {
+  if [[ -z "$MC_VERSION" ]]; then
+    MC_VERSION="1.20.4"
+  fi
+  majorVersion=$MC_VERSION
+  PAPER_BUILD_JSON=$(curl -X GET -s "https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds")
+  PAPER_BUILD_FILENAME=$(jq -n "$PAPER_BUILD_JSON" | jq -jc '.builds[-1].downloads.application.name')
+  PAPER_BUILD_NUMBER=$(jq -n "$PAPER_BUILD_JSON" | jq '.builds[-1].build')
+  PAPER_BUILD_DOWNLOAD_URL="https://api.papermc.io/v2/projects/paper/versions/${MC_VERSION}/builds/${PAPER_BUILD_NUMBER}/downloads/${PAPER_BUILD_FILENAME}"
+
+  delete_server
+
+  wget --quiet -O server.jar -T 60 $PAPER_BUILD_DOWNLOAD_URL
+}
+
 get_pufferfish_server() {
   if [[ -z "$MC_VERSION" ]]; then
     MC_VERSION="1.20"
@@ -58,6 +73,9 @@ get_server() {
   fi
   if [[ "$MC_SERVER" = "purpur" ]]; then
     get_purpur_server
+  fi
+  if [[ "$MC_SERVER" = "paper" ]]; then
+    get_paper_server
   fi
 }
 

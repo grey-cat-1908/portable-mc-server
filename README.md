@@ -29,7 +29,7 @@ You can configure nearly everything by setting up the following Enviroment Varia
 |---|---|---|
 | `RAM`  | How much RAM do you want to allocate to the server?  | `1G` (default) |
 | `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.20.4` (default) |
-| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `patina` are supported) | `purpur` (default) |
+| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `patina`, `paper` are supported) | `purpur` (default) |
 | `SSH_PASSWORD`  |  SSH password  | `admin` (default) |
 | `FORCE_REINSTALL` | Would you like to reinstall your server? `1` - yes; `0` - no | `0` (default) |
 
@@ -41,7 +41,9 @@ You can configure nearly everything by setting up the following Enviroment Varia
 
 ## Using RCON
 
-... ToDo...?
+You can connect to your server console using Minecraft RCON. You only need server IP-address, RCON port (usually default) and RCON password (you should change it in server.properties, but default is admin).
+
+If you are using Windows 10 (11) system, you can use [my simple batch script](https://gist.github.com/grey-cat-1908/6aa7894ae94588886aa5a1c7e786b5e4) to install and use Minecraft RCON.
 
 ## Connecting to the server using SFTP
 
@@ -64,6 +66,7 @@ Purpur is automatically installed the first time you run it. If you want to chan
 | [Pufferfish](https://github.com/pufferfish-gg/Pufferfish) | `pufferfish`  
 | [Patina](https://github.com/PatinaMC/Patina) | `patina`  
 | [Purpur](https://purpurmc.org/) | `purpur`  
+| [Paper](https://papermc.io/) | `paper`  
 
 ## Installing plugins
 
