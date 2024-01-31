@@ -13,6 +13,7 @@ services:
       - localcache:/localcache
     ports:
       - "25565:25565/tcp"
+      - "25575:25575/tcp"
   ssh:
     network_mode: host
     restart: always

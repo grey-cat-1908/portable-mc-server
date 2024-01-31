@@ -1,5 +1,5 @@
 get_pufferfish_server() {
-  if [[ -z "$RAM" ]]; then
+  if [[ -z "$MC_VERSION" ]]; then
     MC_VERSION="1.20"
   fi
   majorVersion=$MC_VERSION
@@ -10,11 +10,40 @@ get_pufferfish_server() {
 
   shopt -s nullglob
 
-  if [ -f "pufferfish.jar" ]; then
-    rm "pufferfish.jar"
+  if [ -f "server.jar" ]; then
+    rm "server.jar"
   fi
 
-  wget --quiet -O pufferfish.jar -T 60 $PUFFERFISH_BUILD_DOWNLOAD_URL
+  wget --quiet -O server.jar -T 60 $PUFFERFISH_BUILD_DOWNLOAD_URL
+}
+
+get_patina_server() {
+  if [[ -z "$MC_VERSION" ]]; then
+    MC_VERSION="1.20.4"
+  fi
+
+  PATINA_BUILD_DOWNLOAD_URL="https://github.com/PatinaMC/Patina/raw/releases/${MC_VERSION}/patina-paperclip-${MC_VERSION}-R0.1-SNAPSHOT-reobf.jar"
+
+  shopt -s nullglob
+
+  if [ -f "server.jar" ]; then
+    rm "server.jar"
+  fi
+
+  wget --quiet -O server.jar -T 60 $PATINA_BUILD_DOWNLOAD_URL
+}
+
+get_server() {
+  if [[ -z "$MC_SERVER" ]]; then
+    MC_SERVER="pufferfish"
+  fi
+
+  if [[ "$MC_SERVER" = "pufferfish" ]]; then
+    get_pufferfish_server
+  fi
+  if [[ "$MC_SERVER" = "patina" ]]; then
+    get_patina_server
+  fi
 }
 
 if [[ ! -e "/localcache/conf-saved.txt" ]]; then
@@ -24,11 +53,11 @@ fi
 
 cd /usr/src/mcfiles/ || exit
 
-if [[ ! -e "pufferfish.jar" ]]; then
-  get_pufferfish_server
+if [[ ! -e "server.jar" ]]; then
+  get_server
 else
   if [[ "$FORCE_REINSTALL" -eq 1 ]]; then
-    get_pufferfish_server
+    get_server
   fi
 fi
 
@@ -36,6 +65,6 @@ if [[ -z "$RAM" ]]; then
   RAM="1G"
 fi
 
-java -Xms$RAM -Xmx$RAM -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar pufferfish.jar nogui
+java -Xms$RAM -Xmx$RAM -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:+ParallelRefProcEnabled -XX:+PerfDisableSharedMem -XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1HeapRegionSize=8M -XX:G1HeapWastePercent=5 -XX:G1MaxNewSizePercent=40 -XX:G1MixedGCCountTarget=4 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1NewSizePercent=30 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:G1ReservePercent=20 -XX:InitiatingHeapOccupancyPercent=15 -XX:MaxGCPauseMillis=200 -XX:MaxTenuringThreshold=1 -XX:SurvivorRatio=32 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar server.jar nogui
 
 sleep 10
