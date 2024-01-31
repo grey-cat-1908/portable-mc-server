@@ -72,3 +72,7 @@ Purpur is automatically installed the first time you run it. If you want to chan
 ## Mods...?
 
 ... ToDo...?
+
+## Bedrock Support
+
+... ToDo...?
