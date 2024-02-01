@@ -1,4 +1,25 @@
 name: Minecraft Server
+description: >-
+  A Portable Minecraft Server Minecraft server that you can easily run on your Raspberry Pi.
+type: sw.application
+fleetcta: A Portable Minecraft Server
+post-provisioning: >-
+  For usage instructions check out the [readme here](https://github.com/grey-cat-1908/portable-mc-server).
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/grey-cat-1908/portable-mc-server'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://raw.githubusercontent.com/grey-cat-1908/portable-mc-server/master/static/logo.png
 data:
   applicationEnvironmentVariables:
     - RAM: 1G
+  defaultDeviceType: raspberrypi4-64
+  supportedDeviceTypes:
+    - raspberrypi4-64
+    - raspberrypi5
+  version: 1.0.0

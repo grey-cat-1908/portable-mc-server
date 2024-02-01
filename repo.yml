@@ -1,0 +1,4 @@
+type: generic
+upstream:
+  - repo: portable-mc-server
+    url: https://github.com/grey-cat-1908/portable-mc-server

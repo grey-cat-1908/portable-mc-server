@@ -1,0 +1,4 @@
+FROM bh.cr/balenalabs/wifi-connect-%%BALENA_ARCH%%
+
+ENV PORTAL_SSID="MinecraftServerSetup"
+ENV PORTAL_PASSPHRASE="yourportablemcserver"

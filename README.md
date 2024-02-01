@@ -15,6 +15,8 @@ This is a project that allows you to easily install and configure a minecraft se
 
 ## Setup
 
+![wifi connect](https://raw.githubusercontent.com/balena-os/wifi-connect/master/docs/images/how-it-works.png)
+
 ... ToDo...?
 
 ## Connect to the server
