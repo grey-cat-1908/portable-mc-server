@@ -6,8 +6,8 @@ RUN install_packages wget jq openjdk-17-jre
 
 COPY . /
 
-COPY run.sh /usr/src/
+COPY start.sh /usr/src/
 
-RUN chmod +x /usr/src/run.sh
+RUN chmod +x /usr/src/start.sh
 
-CMD ["/bin/bash", "/usr/src/run.sh"]
+CMD ["/bin/bash", "/usr/src/start.sh"]

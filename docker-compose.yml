@@ -14,6 +14,8 @@ services:
     ports:
       - "25565:25565/tcp"
       - "25575:25575/tcp"
+      - "19132:19132/tcp"
+      - "19132:19132/udp"
   ssh:
     network_mode: host
     restart: always

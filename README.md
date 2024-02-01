@@ -17,9 +17,19 @@ This is a project that allows you to easily install and configure a minecraft se
 
 ... ToDo...?
 
-## Connecting to the server
+## Connect to the server
 
-... ToDo...?
+Remember that only users connected to the same WiFi network as the Raspberry Pi can connect, so it might be a good idea for one of your friends to share the internet from their mobile phone.
+
+You can get your IP-Address within balenaCloud. You should copy IP-Address from the `LOCAL IP ADDRESS` in `Summary` block. 
+
+![getting IP-Address](https://cdn.arbuz.icu/img/balena/gettingLocalIp.png)
+
+You can connect to your server like this:
+
+![how to connect image](https://cdn.arbuz.icu/img/balena/ConnectLikeThis.png)
+
+Default port is `25565` (don't change it). Remember to change IP-address from the image to yours.
 
 ## Configuring
 
@@ -32,12 +42,14 @@ You can configure nearly everything by setting up the following Enviroment Varia
 | `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `patina`, `paper` are supported) | `purpur` (default) |
 | `SSH_PASSWORD`  |  SSH password  | `admin` (default) |
 | `FORCE_REINSTALL` | Would you like to reinstall your server? `1` - yes; `0` - no | `0` (default) |
+| `SUPPORT_BEDROCK` | Would you like to add support for Minecraft Bedrock users? `1` - yes; `0` - no | `0` (default) |
 
 **NOTE:** You can set Environment Variable within balenaCloud. On the left, simply click on “Device Variables” and then click the “Add Variable” button. Give it a name, and set the value.
 
+![set variable demonstration](https://cdn.arbuz.icu/img/balena/balenaSetVariables.png)
+
 **NOTE:** You can also delete everything on the server and automatically reinstall it. On the left, simply click on “Actions” and then click the “Purge Data” button. Insert `1` and click “Purge Data”.
 
-![set variable demonstration](https://cdn.arbuz.icu/img/balena/balenaSetVariables.png)
 
 ## Using RCON
 
@@ -51,9 +63,9 @@ I recommend using FileZilla to connect to the server via SFTP.
 
 ### FileZilla User Guide
 
-... ToDo...?
+The Host to connect to SFTP is the IP-Address you are using to connect to Minecraft Server, the protocol to choose is SFTP, the port number is 22, the username is “root” (without the quotes) and the password is “admin” (without the quotes). Once the connection is established, remember to navigate to the `/usr/src/mcfiles` directory.
 
-Once the connection is established, remember to navigate to the `/usr/src/mcfiles` directory.
+**NOTE:** You can change your password by changing `SSH_PASSWORD` enviroment variable..
 
 ## Changing server
 
@@ -70,12 +82,28 @@ Purpur is automatically installed the first time you run it. If you want to chan
 
 ## Installing plugins
 
-... ToDo...?
+You can install your plugins by connecting to the server via SFTP. Download the plugins you need from reliable sites (`hangar.papermc.io`, `spigotmc.org` or official plugin sites). Put them in the plugins directory and restart the server. (e.g. with RCON (command `restart`) or by restarting the minecraft service on balenaCloud).
+
+## Disabling online-mode and more...
+
+You can change your `server.properties` by connecting to the server via SFTP. Open and edit file called `server.properties`.
+Here you can set `online-mode` value to `false`. After that users will not need a licensed Minecraft afterwards.
+Also you can change `rcon.password`, `max-players` value, `motd` and much more things, that are not listed here (go to website `server.properties` to find more properties)
+
+Remember to restart yor server (e.g. with RCON (command `restart`) or by restarting the minecraft service on balenaCloud).
 
 ## Mods...?
 
-... ToDo...?
+Mods are not supported at the moment and I don't see the point in doing so. My understanding is that servers with mods are not very common, more complicated to use (everyone has to have the same mod version and so on) and more demanding on resources (I am not sure Raspberry Pi can handle it).
 
 ## Bedrock Support
 
-... ToDo...?
+YES! You can connect to the server using Minecraft Bedrock and play with your friends. To do this, set the `SUPPORT_BEDROCK` environment variable to `1` and restart the server.
+
+Bedrock players can connect to the server by specifying port `19132`, which is the default port for Minecraft Bedrock. The IP-address must be the same as the one used by Minecraft Java players.
+
+**NOTE:** You must be running the latest version of Minecraft. If you want to upgrade to a newer version, you will need to manually remove `geyser.jar` and `floodgate.jar` from the `plugins` folder using SFTP (we wrote about this earlier). If you want to remove Minecraft Bedrock support, remove the plugins and set the `SUPPORT_BEDROCK` environment variable to `0`.
+
+## Play worldwide
+
+If you want to make the server available outside your WiFi network, you can use something like **No-IP**. I've never used it, so I can't give you any advice. If you know how it works, you can write instructions and send a pull request.
