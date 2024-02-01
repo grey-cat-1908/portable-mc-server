@@ -1,3 +1,5 @@
+![logo](https://raw.githubusercontent.com/grey-cat-1908/portable-mc-server/master/static/logo.png)
+
 # Your Portable Minecraft Server
 
 This is a project that allows you to easily install and configure a minecraft server on your Raspberry Pi or other similar device.
