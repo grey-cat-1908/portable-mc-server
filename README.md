@@ -17,9 +17,22 @@ This is a project that allows you to easily install and configure a minecraft se
 
 ## Setup
 
-![wifi connect](https://raw.githubusercontent.com/balena-os/wifi-connect/master/docs/images/how-it-works.png)
+1. Download and install [balenaEtcher](https://etcher.balena.io/).
+2. Sign up for or login to the [balenaCloud](https://dashboard.balena-cloud.com/) dashboard.
+3. Click on **Deploy with balena** button.
+4. Click on **Create and deploy** button.
+5. Click on **Add device** button.
+6. Select your device type. Click on **Wifi + Ethernet**. Specify your WiFi network's SSID and Password.
+7. Insert the SD-card into your computer.
+8. Click on **Flash** button.
+9. Insert your SD-card to the board.
+10. Toggle on your board.
 
-... ToDo...?
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/grey-cat-1908/portable-mc-server/)
+
+**NOTE:** For the device to download all the data, the initial WiFi connection must be functional. You can create a mobile hotspot and change the WiFi network later.  If the board is unable to connect to the internet, it will establish a hotspot. You can connect to it and enter the details of the new WiFi network.
+
+![wifi connect](https://raw.githubusercontent.com/balena-os/wifi-connect/master/docs/images/how-it-works.png)
 
 ## Connect to the server
 
