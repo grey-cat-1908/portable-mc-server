@@ -10,10 +10,12 @@ This is a project that allows you to easily install and configure a minecraft se
 - Does not require any knowledge
 - Portable (you can bring your Raspberry Pi wherever you want)
 - It is cheap (No need to pay for anything other than electricity if you already have a Raspberry Pi)
-- Runs on Raspberry Pi 4 and Raspberry Pi 5 (4G and 8GB model)
+- Runs on Raspberry Pi 4 and Raspberry Pi 5 (4GB and 8GB models)
 - You'll look cool in front of your friends if you run a server on the board (if they don't know what Raspberry Pi is)
 - Does not load your computer
 - You can control and configure everything (as long as your board has enough power)
+
+## Recommendations
 
 ## Setup
 
@@ -30,7 +32,7 @@ This is a project that allows you to easily install and configure a minecraft se
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/grey-cat-1908/portable-mc-server/)
 
-**NOTE:** For the device to download all the data, the initial WiFi connection must be functional. You can create a mobile hotspot and change the WiFi network later.  If the board is unable to connect to the internet, it will establish a hotspot. You can connect to it and enter the details of the new WiFi network.
+**NOTE:** For the device to download all the data, the initial Wi-Fi connection must be functional. You can create a mobile hotspot and change the Wi-Fi network later.  If the board is unable to connect to the internet, it will establish a hotspot. You can connect to it and enter the details of the new Wi-Fi network.
 
 ![wifi connect](https://raw.githubusercontent.com/balena-os/wifi-connect/master/docs/images/how-it-works.png)
 
