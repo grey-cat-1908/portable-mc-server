@@ -11,7 +11,7 @@ get_paper_server() {
     MC_VERSION="1.20.4"
   fi
   majorVersion=$MC_VERSION
-  PAPER_BUILD_JSON=$(curl -X GET -s "https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds")
+  PAPER_BUILD_JSON=$(curl -X GET -s "https://api.papermc.io/v2/projects/paper/versions/${MC_VERSION}/builds")
   PAPER_BUILD_FILENAME=$(jq -n "$PAPER_BUILD_JSON" | jq -jc '.builds[-1].downloads.application.name')
   PAPER_BUILD_NUMBER=$(jq -n "$PAPER_BUILD_JSON" | jq '.builds[-1].build')
   PAPER_BUILD_DOWNLOAD_URL="https://api.papermc.io/v2/projects/paper/versions/${MC_VERSION}/builds/${PAPER_BUILD_NUMBER}/downloads/${PAPER_BUILD_FILENAME}"
