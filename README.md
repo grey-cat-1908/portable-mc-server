@@ -17,6 +17,12 @@ This is a project that allows you to easily install and configure a minecraft se
 
 ## Recommendations
 
+- Your Raspberry Pi should be 4GB or 8GB.
+- You must have stable internet connection while using (you can set up a mobile hotspot)
+- You should install and test everything at home. (Re-)Installing can take a long time if you have slow internet connection
+- You should set `online-mode` to `false` if you have slow internet connection or would like to play using unlicensed account
+- During the first installation, the device must be connected to the Internet, which is specified in **balenaCloud dashboard**
+
 ## Setup
 
 1. Download and install [balenaEtcher](https://etcher.balena.io/).
