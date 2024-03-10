@@ -42,6 +42,8 @@ This is a project that allows you to easily install and configure a minecraft se
 
 ![wifi connect](https://raw.githubusercontent.com/balena-os/wifi-connect/master/docs/images/how-it-works.png)
 
+**NOTE:** SSID of board's hotspot is `MinecraftServerSetup`. Password is `yourportablemcserver`
+
 ## Connect to the server
 
 Remember that only users connected to the same WiFi network as the Raspberry Pi can connect, so it might be a good idea for one of your friends to share the internet from their mobile phone.
