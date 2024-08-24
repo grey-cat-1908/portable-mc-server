@@ -50,11 +50,11 @@ Remember that only users connected to the same WiFi network as the Raspberry Pi 
 
 You can get your IP-Address within balenaCloud. You should copy IP-Address from the `LOCAL IP ADDRESS` in `Summary` block. 
 
-![getting IP-Address](https://cdn.arbuz.icu/img/balena/gettingLocalIp.png)
+![getting IP-Address](https://cdn.mrkrk.me/img/balena/gettingLocalIp.png)
 
 You can connect to your server like this:
 
-![how to connect image](https://cdn.arbuz.icu/img/balena/ConnectLikeThis.png)
+![how to connect image](https://cdn.mrkrk.me/img/balena/ConnectLikeThis.png)
 
 Default port is `25565` (don't change it). Remember to change IP-address from the image to yours.
 
@@ -73,7 +73,7 @@ You can configure nearly everything by setting up the following Enviroment Varia
 
 **NOTE:** You can set Environment Variable within balenaCloud. On the left, simply click on “Device Variables” and then click the “Add Variable” button. Give it a name, and set the value.
 
-![set variable demonstration](https://cdn.arbuz.icu/img/balena/balenaSetVariables.png)
+![set variable demonstration](https://cdn.mrkrk.me/img/balena/balenaSetVariables.png)
 
 **NOTE:** You can also delete everything on the server and automatically reinstall it. On the left, simply click on “Actions” and then click the “Purge Data” button. Insert `1` and click “Purge Data”.
 
@@ -138,4 +138,4 @@ If you want to make the server available outside your WiFi network, you can use 
 
 <hr>
 
-You can find development blog [here](https://arbuz.icu/blog/portable-minecraft)
+You can find development blog [here](https://mrkrk.me/blog/portable-minecraft)
