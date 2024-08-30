@@ -135,6 +135,9 @@ Bedrock players can connect to the server by specifying port `19132`, which is t
 
 If you want to make the server available outside your WiFi network, you can use something like **No-IP**. I've never used it, so I can't give you any advice. If you know how it works, you can write instructions and send a pull request.
 
+## License
+
+Distributed under the terms of the MIT License.
 
 <hr>
 
