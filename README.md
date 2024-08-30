@@ -137,7 +137,7 @@ If you want to make the server available outside your WiFi network, you can use 
 
 ## License
 
-Distributed under the terms of the MIT License.
+Distributed under the terms of the Apache-2.0 License.
 
 <hr>
 
