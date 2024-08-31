@@ -65,8 +65,8 @@ You can configure nearly everything by setting up the following Enviroment Varia
 |  Variable  | Description | Value |
 |---|---|---|
 | `RAM`  | How much RAM do you want to allocate to the server?  | `1G` (default) |
-| `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.20.4` (default) |
-| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `patina`, `paper` are supported) | `purpur` (default) |
+| `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.21.1` (default) |
+| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `paper` are supported) | `paper` (default) |
 | `SSH_PASSWORD`  |  SSH password  | `admin` (default) |
 | `FORCE_REINSTALL` | Would you like to reinstall your server? `1` - yes; `0` - no | `0` (default) |
 | `SUPPORT_BEDROCK` | Would you like to add support for Minecraft Bedrock users? `1` - yes; `0` - no | `0` (default) |
@@ -102,8 +102,7 @@ Purpur is automatically installed the first time you run it. If you want to chan
 
 | Server | `MC_SERVER` value |
 | --- | --- |
-| [Pufferfish](https://github.com/pufferfish-gg/Pufferfish) | `pufferfish`  
-| [Patina](https://github.com/PatinaMC/Patina) | `patina`  
+| [Pufferfish](https://github.com/pufferfish-gg/Pufferfish) | `pufferfish`   
 | [Purpur](https://purpurmc.org/) | `purpur`  
 | [Paper](https://papermc.io/) | `paper`  
 
@@ -134,6 +133,10 @@ Bedrock players can connect to the server by specifying port `19132`, which is t
 ## Play worldwide
 
 If you want to make the server available outside your WiFi network, you can use something like **No-IP**. I've never used it, so I can't give you any advice. If you know how it works, you can write instructions and send a pull request.
+
+## Help
+
+If you have any questions or want to get involved in the project in any way, you can use all GitHub instruments (Issues and Pull Requests) or just [email me](mailto:mail@mrkrk.me). 
 
 ## License
 
