@@ -8,7 +8,7 @@ delete_server() {
 
 get_paper_server() {
   if [[ -z "$MC_VERSION" ]]; then
-    MC_VERSION="1.20.4"
+    MC_VERSION="1.20"
   fi
   
   majorVersion=$MC_VERSION
@@ -40,7 +40,7 @@ get_pufferfish_server() {
 
 get_purpur_server() {
   if [[ -z "$MC_VERSION" ]]; then
-    MC_VERSION="1.20.4"
+    MC_VERSION="1.20"
   fi
 
   PURPUR_BUILD_DOWNLOAD_URL="https://api.purpurmc.org/v2/purpur/${MC_VERSION}/latest/download"
