@@ -65,7 +65,7 @@ You can configure nearly everything by setting up the following Enviroment Varia
 |  Variable  | Description | Value |
 |---|---|---|
 | `RAM`  | How much RAM do you want to allocate to the server?  | `1G` (default) |
-| `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.21.1` (default) |
+| `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.20.4` (default) |
 | `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `paper`, `custom` are supported) | `paper` (default) |
 | `SSH_PASSWORD`  |  SSH password  | `admin` (default) |
 | `FORCE_REINSTALL` | Would you like to reinstall your server? `1` - yes; `0` - no | `0` (default) |
