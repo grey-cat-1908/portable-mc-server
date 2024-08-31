@@ -54,6 +54,7 @@ get_custom_server() {
   if [[ -z "$CUSTOM_BUILD_URL" ]]; then
     get_paper_server
   else
+    delete_server
     wget --quiet -O server.jar -T 60 $CUSTOM_BUILD_URL
   fi
 }
