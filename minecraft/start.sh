@@ -10,6 +10,7 @@ get_paper_server() {
   if [[ -z "$MC_VERSION" ]]; then
     MC_VERSION="1.21.1"
   fi
+  
   majorVersion=$MC_VERSION
   PAPER_BUILD_JSON=$(curl -X GET -s "https://api.papermc.io/v2/projects/paper/versions/${MC_VERSION}/builds")
   PAPER_BUILD_FILENAME=$(jq -n "$PAPER_BUILD_JSON" | jq -jc '.builds[-1].downloads.application.name')
@@ -25,6 +26,7 @@ get_pufferfish_server() {
   if [[ -z "$MC_VERSION" ]]; then
     MC_VERSION="1.21"
   fi
+  
   majorVersion=$MC_VERSION
   PUFFERFISH_BUILD_JSON=$(curl -X GET -s "https://ci.pufferfish.host/job/Pufferfish-${majorVersion}/lastSuccessfulBuild/api/json")
   PUFFERFISH_BUILD_URL=$(jq -n "$PUFFERFISH_BUILD_JSON" | jq -jc '.url // empty' )
@@ -48,9 +50,17 @@ get_purpur_server() {
   wget --quiet -O server.jar -T 60 $PURPUR_BUILD_DOWNLOAD_URL
 }
 
+get_custom_server() {
+  if [[ -z "$CUSTOM_BUILD_URL" ]]; then
+    get_paper_server
+  else
+    wget --quiet -O server.jar -T 60 $CUSTOM_BUILD_URL
+  fi
+}
+
 get_server() {
   if [[ -z "$MC_SERVER" ]]; then
-    MC_SERVER="purpur"
+    MC_SERVER="paper"
   fi
 
   if [[ "$MC_SERVER" = "pufferfish" ]]; then
@@ -61,6 +71,9 @@ get_server() {
   fi
   if [[ "$MC_SERVER" = "paper" ]]; then
     get_paper_server
+  fi
+  if [[ "$MC_SERVER" = "custom" ]]; then
+    get_custom_server
   fi
 }
 
