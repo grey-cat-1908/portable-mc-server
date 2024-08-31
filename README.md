@@ -66,17 +66,17 @@ You can configure nearly everything by setting up the following Enviroment Varia
 |---|---|---|
 | `RAM`  | How much RAM do you want to allocate to the server?  | `1G` (default) |
 | `MC_VERSION`  |  What version of Minecraft do you want to install? | `1.21.1` (default) |
-| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `paper` are supported) | `paper` (default) |
+| `MC_SERVER` | Which server should be installed automatically? (only `pufferfish`, `purpur`, `paper`, `custom` are supported) | `paper` (default) |
 | `SSH_PASSWORD`  |  SSH password  | `admin` (default) |
 | `FORCE_REINSTALL` | Would you like to reinstall your server? `1` - yes; `0` - no | `0` (default) |
 | `SUPPORT_BEDROCK` | Would you like to add support for Minecraft Bedrock users? `1` - yes; `0` - no | `0` (default) |
+| `CUSTOM_BUILD_URL` | Custom build URL. Only applies if you set the `MC_SERVER` value to `custom` | - |
 
 **NOTE:** You can set Environment Variable within balenaCloud. On the left, simply click on “Device Variables” and then click the “Add Variable” button. Give it a name, and set the value.
 
 ![set variable demonstration](https://cdn.mrkrk.me/img/balena/balenaSetVariables.png)
 
 **NOTE:** You can also delete everything on the server and automatically reinstall it. On the left, simply click on “Actions” and then click the “Purge Data” button. Insert `1` and click “Purge Data”.
-
 
 ## Using RCON
 
@@ -106,6 +106,8 @@ Purpur is automatically installed the first time you run it. If you want to chan
 | [Purpur](https://purpurmc.org/) | `purpur`  
 | [Paper](https://papermc.io/) | `paper`  
 
+You can also set the `MC_SERVER` value to `custom`, but then you must also set the `CUSTOM_BUILD_URL` environment variable. Maybe someone has already done this and written instructions. I suggest you look for the instructions [here](https://github.com/grey-cat-1908/portable-mc-server/issues) or try to do that by yourself.
+
 ## Installing plugins
 
 You can install your plugins by connecting to the server via SFTP. Download the plugins you need from reliable sites (`hangar.papermc.io`, `spigotmc.org` or official plugin sites). Put them in the plugins directory and restart the server. (e.g. with RCON (command `restart`) or by restarting the minecraft service on balenaCloud).
@@ -120,7 +122,9 @@ Remember to restart yor server (e.g. with RCON (command `restart`) or by restart
 
 ## Mods...?
 
-Mods are not supported at the moment and I don't see the point in doing so. My understanding is that servers with mods are not very common, more complicated to use (everyone has to have the same mod version and so on) and more demanding on resources (I am not sure Raspberry Pi can handle it).
+Mods are not supported at the moment, and I don't see the point. As far as I know, servers with mods are not very common, are more difficult to use (everyone has to have the same mod version, etc.), and are more resource intensive (not sure if the Raspberry Pi can handle it).
+
+**NOTE:** However, you could try installing mods using the `custom` server installation option. If you know how to do that, you can post a complete installation guide for beginners [here](https://github.com/grey-cat-1908/portable-mc-server/issues). You will probably help a lot of people, and support for this type of server may be added in the future.
 
 ## Bedrock Support
 
